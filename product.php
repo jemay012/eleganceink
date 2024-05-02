@@ -85,11 +85,6 @@ include 'header.php';
 				</div>
 
 				<div class="flex-w flex-c-m m-tb-10">
-					<div class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter">
-						<i class="icon-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-filter-list"></i>
-						<i class="icon-close-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
-						 Filter
-					</div>
 
 					<div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">
 						<i class="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>
@@ -580,15 +575,15 @@ echo '
 					<div class="col-md-6 col-lg-5 p-b-30">
 						<div class="p-r-50 p-t-5 p-lr-0-lg">
 							<h4 id="modalProductName"class="mtext-105 cl2 js-name-detail p-b-14">
-								
+								N/A
 							</h4>
 
 							<span id='modalProductPrice'class="mtext-106 cl2">
-								
+								N/A
 							</span>
 
 							<p id='modalProductInfo' class="stext-102 cl3 p-t-23">
-								Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat.
+  								Javascript is not responsive
 							</p>
 							
 							<!--  -->
@@ -600,11 +595,8 @@ echo '
 
 									<div class="size-204 respon6-next">
 										<div class="rs1-select2 bor8 bg0">
-											<select class="js-select2" name="time">
-												<option>Choose an option</option>
-												<option>Small</option>
-												<option>Large (not crimp)</option>
-
+											<select class="js-select2" id="js-select2" name="time">
+										
 											</select>
 											<div class="dropDownSelect2"></div>
 										</div>
@@ -780,31 +772,3 @@ echo '
 mysqli_close($conn);
 ?>
 
-<script>
-	let itemName='';
-let itemPrice='';
-let itemSrc='';
-let myArray =[];
-
- function showmodal(id,product_name, product_type, product_price, product_image, product_description, product_size){
-
-       document.querySelector('.item-slick3').setAttribute("data-thumb",product_image);
-       
-       document.querySelector('#js_ahref').setAttribute('href',product_image);//full screen button
-       document.querySelector('#modalProductInfo').innerHTML=product_description;
-       document.querySelector('#modalProductPrice').innerHTML = '₱'+product_price+'.00';
-       document.querySelector('#modalMainImage').setAttribute("src",product_image);
-       document.querySelector('#modalProductName').innerHTML = product_name;
-
-        b = product_size.replace(/tmpdq/g, '"'); //replace the added tmpdq, originally it is single quote and change to tmpdq
-        b = b.replace(/'/g, ""); //replance the remaining single quote to be able to json parse it
-       
-        b = JSON.parse(b);
-       console.log(b.length);
-       
-
-       
-                                   
- }
-       
-</script>

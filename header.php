@@ -22,12 +22,15 @@
 								</ul>
 							</li>
 
-							<li class="label1" data-label1="hot">
+							<li  >
 								<a href="product.php">Product</a>
 							</li>
 
 							<li>
 								<a href="about.html">About</a>
+							</li>
+							<li>
+								<a href="blog.html">Blog</a>
 							</li>
 
 							<li>

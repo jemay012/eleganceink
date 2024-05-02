@@ -17,10 +17,19 @@ let myArray =[];
         b = b.replace(/'/g, ""); //replance the remaining single quote to be able to json parse it
        
         b = JSON.parse(b);
-       console.log(b.length);
-       
-
-       
-                                   
+       console.log(b);
+       let html='	<option disabled selected>Choose an option</option>';
+      for(let ctr=0; ctr<b.length; ctr++){
+            html +=`<option>${b[ctr]}</option>`;
+            document.querySelector('#js-select2').innerHTML =html;    
+      } 
+               
  }
        
+ /*
+
+<option>Choose an option</option>
+<option>Small</option>
+<option>Large (not crimp)</option>
+
+ */
