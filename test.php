@@ -21,25 +21,76 @@ function GetExtCourses($campus_key)
               $return .= "<li><span class=\"majors\">$ext_college[3]</span></li>";
               if($ext_college[3] ==2){
 
-                     $result2 = $mysqli -> query($ext_course_query);
-                     {
-                 
-                         while ($ext_majors = $result2->fetch_row())
-                         {
-                 
-                             $ext_major_title = $ext_majors[2];
-                     
-                             $return .= "<li><span class=\"majors\">$ext_major_title</span></li>";
-                         }
-                     }
-                 
-                     return $return;
-                    
-              }
-       }
- }
+                $result2 = $mysqli -> query($ext_course_query);
+                {
+            
+                    while ($ext_majors = $result2->fetch_row())
+                    {
+            
+                        $ext_major_title = $ext_majors[2];
+                
+                        $return .= "<li><span class=\"majors\">$ext_major_title</span></li>";
+                    }
+                }
+            
+                return $return;
+               
+                 }
+                    if($ext_college[3] ==1){
 
-}
+                    $result2 = $mysqli -> query($ext_course_query);
+                    {
+
+                    while ($ext_majors = $result2->fetch_row())
+                    {
+
+                    $ext_major_title = $ext_majors[2];
+
+                    $return .= "<li><span class=\"majors\">$ext_major_title</span></li>";
+                    }
+                    }
+
+                    return $return;
+
+                    }
+                    if($ext_college[3] ==3){
+
+                    $result2 = $mysqli -> query($ext_course_query);
+                    {
+
+                    while ($ext_majors = $result2->fetch_row())
+                    {
+
+                    $ext_major_title = $ext_majors[2];
+
+                    $return .= "<li><span class=\"majors\">$ext_major_title</span></li>";
+                    }
+                    }
+
+                    return $return;
+
+                    }
+                    if($ext_college[3] ==4){
+
+                    $result2 = $mysqli -> query($ext_course_query);
+                    {
+
+                    while ($ext_majors = $result2->fetch_row())
+                    {
+
+                    $ext_major_title = $ext_majors[2];
+
+                    $return .= "<li><span class=\"majors\">$ext_major_title</span></li>";
+                    }
+                    }
+
+                    return $return;
+
+                    }
+                    }
+                    }
+
+                    }
 
 $result = $mysqli -> query($query);
 

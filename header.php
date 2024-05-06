@@ -15,7 +15,7 @@
 						<ul class="main-menu">
 							<li class="active-menu">
 								<a href="index.php">Home</a>
-								<ul class="sub-menu">
+								<ul class="sub-menu d-none">
 									<li><a href="index.php">Homepage 1</a></li>
 									<li><a href="home-02.html">Homepage 2</a></li>
 									<li><a href="home-03.html">Homepage 3</a></li>
@@ -30,7 +30,7 @@
 								<a href="about.html">About</a>
 							</li>
 							<li>
-								<a href="blog.html">Blog</a>
+								<a href="blog.php">Blog</a>
 							</li>
 
 							<li>
