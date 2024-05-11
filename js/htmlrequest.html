@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="data.js"></script>
+  </head>
+<body>
+
+
+<script>
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+}
+
+
+let setOfAnswer ='';
+let randomChoice='';
+let htmlanswer='';
+
+if (localStorage.getItem("answerBtn")==null){
+  let answerBtnNumber =0;
+  localStorage.setItem("answerBtn",answerBtnNumber);
+}
+
+
+
+window.onload =  function reload2(){
+
+    if(localStorage.getItem("html")===null){
+    console.log('true');
+
+    html="<tr> <th> Question </th><th> Answer </th><th>Answer</th></tr>";
+    document.querySelector('.tr').innerHTML=html;
+    }
+    else {
+    console.log('else');
+    document.querySelector('.tr').innerHTML=(localStorage.getItem("html"));
+    }
+
+}
+
+console.log('question:'+question[0].word);
+
+
+
+function showAnswer(button,answer){
+    var divElement = document.createElement('div');
+    divElement.textContent = answer;
+    button.parentNode.replaceChild(divElement, button);
+}
+
+function getRandomQuestion(){
+  let tempAnswer=[];
+  let dupChecker='';
+  let answerBtn= localStorage.getItem("answerBtn")
+  answerBtn++;
+  localStorage.setItem("answerBtn",answerBtn);
+
+  const randomElement = question[Math.floor(Math.random() * question.length)];  
+  console.log(randomElement);
+  tempAnswer.push(randomElement.answer)
+    do{
+        randomChoice = question2[Math.floor(Math.random() * question2.length)];
+        console.log(randomChoice.answer);
+        for(let counterFortempAnswer=0; counterFortempAnswer<tempAnswer.length; counterFortempAnswer++){
+          if(randomChoice.answer===tempAnswer[counterFortempAnswer]){
+          dupChecker=true;
+          }
+        }
+          if(dupChecker===false){
+          tempAnswer.push(randomChoice.answer);
+          }
+     dupChecker=false;
+    }while(tempAnswer.length!=4)
+
+    console.log('laman ng tempAnswer: '+shuffleArray(tempAnswer));
+    tempAnswer = shuffleArray(tempAnswer);
+    for(let ctr=0; ctr<tempAnswer.length; ctr++){
+    answerBtn +=`<button type='button'>${tempAnswer[ctr]}</button>`;
+    }
+
+    html +=`<tr><td>${randomElement.word}</td><td id="answerBtn"></td><td><button type="button" onclick="showAnswer(this,'${randomElement.answer}')">Show Answer</button></td></tr>`;
+    document.querySelector(".tr").innerHTML=html;
+    localStorage.setItem("html",html);
+    question.splice(question.indexOf(randomElement),1);
+
+}
+function clearStorage() {
+  localStorage.clear();
+  location.reload();
+}
+
+
+</script>
+<button onclick="clearStorage()">Clear Storage</button>
+
+<button onclick="getRandomQuestion()" id="generate">Generate</button>
+<table border="1" class="tr">
+
+
+</table>
+</body>
+</html>

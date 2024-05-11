@@ -1,6 +1,10 @@
 <?xml version="1.0"?>
 <contactDetails>
-       <address></address>
-       <contact></contact>
+       <address>
+              Bignay Street, Sta. Maria Bulacan
+       </address>
+       <contact>0901 2345 6789</contact>
+       <zipCode>3022</zipCode>
        
 </contactDetails>
+
